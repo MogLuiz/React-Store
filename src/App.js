@@ -5,13 +5,19 @@ import { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props)
+    this.handlePClick = this.handlePClick.bind(this)
 
     this.state = {
       name: 'Luiz Henrique'
     }
   }
-  render() {
 
+  handlePClick() {
+    const { name } = this.state
+    console.log(`clicado ${name}`)
+  }
+
+  render() {
     const { name } = this.state
 
     return (
