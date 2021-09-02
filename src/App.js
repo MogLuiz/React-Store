@@ -13,8 +13,7 @@ class App extends Component {
   }
 
   handlePClick() {
-    const { name } = this.state
-    console.log(`clicado ${name}`)
+    this.setState({name: 'Luizin'})
   }
 
   render() {
@@ -24,8 +23,8 @@ class App extends Component {
           <div className="App">
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
+              <p onClick={this.handlePClick}>
+                {name}
               </p>
               <a
                 className="App-link"
