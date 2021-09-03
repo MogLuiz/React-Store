@@ -3,7 +3,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    counter: 0,
+    
     posts: [
       {
         id: 1,
@@ -22,35 +22,28 @@ class App extends Component {
       },
     ]
   };
-  timeoutUpdate = null;
+ 
 
   componentDidMount() {
-    this.handleTimeout();
+    this.loadPosts()
   }
 
-  componentDidUpdate() {
-    this.handleTimeout();
+  loadPosts = async () => {
+    const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts')
+    
+    const [posts] = await Promise.all([postsResponse])
+
+    const postsJson = await posts.json()
+
+    this.setState({ posts: postsJson })
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timeoutUpdate);
-  }
-
-  handleTimeout = () => {
-    const { posts, counter } = this.state;
-    posts[0].title = 'O título mudou';
-
-    this.timeoutUpdate = setTimeout(() => {
-      this.setState({ posts, counter: counter + 1 });
-    }, 1000);
-  }
 
   render() {
-    const { posts, counter } = this.state;
+    const { posts } = this.state;
 
     return (
       <div className="App">
-        <h1>{counter}</h1>
         {posts.map(post => (
           <div key={post.id}>
             <h1>{post.title}</h1>
