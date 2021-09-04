@@ -1,6 +1,14 @@
+// Packages
 import { Component } from 'react';
-import './App.css';
+
+// Utils
+import { loadPosts } from './utils/load-posts'
+
+// Components
 import { PostCard } from './components/PostCard';
+
+// Styles
+import './App.css';
 
 class App extends Component {
   state = { 
@@ -12,18 +20,8 @@ class App extends Component {
   }
 
   loadPosts = async () => {
-    const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts')
-
-    const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos')
     
-    const [posts, photos] = await Promise.all([postsResponse, photosResponse])
-
-    const postsJson = await posts.json()
-    const photosJson = await photos.json()
-
-    const postsAndPhotos = postsJson.map((post, index) => {
-      return { ...post, cover: photosJson[index].url }
-    })
+    const postsAndPhotos = await loadPosts()
 
     this.setState({ posts: postsAndPhotos })
   }
