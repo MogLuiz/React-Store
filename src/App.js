@@ -9,18 +9,15 @@ import { PostCard } from './components/PostCard';
 
 // Styles
 import './App.css';
+import { Posts } from './components/Posts';
 
 class App extends Component {
   state = { 
     posts: []
   };
  
-  componentDidMount() {
-    this.loadPosts()
-  }
+  async componentDidMount() {
 
-  loadPosts = async () => {
-    
     const postsAndPhotos = await loadPosts()
 
     this.setState({ posts: postsAndPhotos })
@@ -32,11 +29,7 @@ class App extends Component {
 
     return (
     <section className="container">
-       <div className="posts">
-        {posts.map(post => (
-         <PostCard key={post.id} post={post}/>
-        ))}
-      </div>
+      <Posts posts={ posts }/>
     </section>
     );
   }
