@@ -4,9 +4,6 @@ import { Component } from 'react';
 // Utils
 import { loadPosts } from './utils/load-posts'
 
-// Components
-import { PostCard } from './components/PostCard';
-
 // Styles
 import './App.css';
 import { Posts } from './components/Posts';
