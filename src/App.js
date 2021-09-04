@@ -36,7 +36,7 @@ class App extends Component {
     <section className="container">
        <div className="posts">
         {posts.map(post => (
-         <PostCard post={post}/>
+         <PostCard key={post.id} post={post}/>
         ))}
       </div>
     </section>
