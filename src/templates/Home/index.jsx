@@ -71,12 +71,12 @@ class Home extends Component {
     return (
     <section className="container">
 
-      <TextInput 
-        handleChange={this.handleChange} 
-        searchValue={searchValue}
-      />
-
-     <br /> <br /> <br />
+      <div className="search-container">
+        <TextInput 
+          handleChange={this.handleChange} 
+          searchValue={searchValue}
+        />
+      </div>
 
       {filteredPosts.length > 0 && (
         <Posts 
