@@ -2,11 +2,11 @@
 import { Component } from 'react';
 
 // Utils
-import { loadPosts } from './utils/load-posts'
+import { loadPosts } from '../../utils/load-posts'
 
 // Styles
-import './App.css';
-import { Posts } from './components/Posts';
+import './styles.css';
+import { Posts } from '../../components/Posts';
 
 class App extends Component {
   state = { 
