@@ -1,9 +1,15 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 // Styles
 import './styles.css'
 
-export const Button = ({ text, onClick }) => {
+export const Button = ({ text, onClick, disabled }) => {
     return (
-        <button className="button" onClick={onClick}>
+        <button 
+            disabled 
+            className="button" 
+            onClick={onClick}
+            disabled={disabled}
+        >
             {text}
         </button>
     )
