@@ -4,6 +4,9 @@ import { Component } from 'react';
 // Utils
 import { loadPosts } from '../../utils/load-posts'
 
+// Components
+import { Button } from '../../components/Button'
+
 // Styles
 import './styles.css';
 import { Posts } from '../../components/Posts';
@@ -28,6 +31,9 @@ class Home extends Component {
     })
   }
 
+  loadMorePosts = () => {
+    console.log('Load')
+  }
 
   render() {
     const { posts } = this.state;
@@ -35,6 +41,7 @@ class Home extends Component {
     return (
     <section className="container">
       <Posts posts={ posts }/>
+      <Button text="Load more posts" onClick={this.loadMorePosts}/>
     </section>
     );
   }
