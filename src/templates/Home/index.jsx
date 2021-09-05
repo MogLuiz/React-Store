@@ -6,6 +6,7 @@ import { loadPosts } from '../../utils/load-posts'
 
 // Components
 import { Button } from '../../components/Button'
+import { TextInput } from '../../components/TextInput';
 
 // Styles
 import './styles.css';
@@ -70,11 +71,12 @@ class Home extends Component {
     return (
     <section className="container">
 
-      <input 
-        value={searchValue}
-        type="search" 
-        onChange={this.handleChange}
-      /> <br /> <br /> <br />
+      <TextInput 
+        handleChange={this.handleChange} 
+        searchValue={searchValue}
+      />
+
+     <br /> <br /> <br />
 
       {filteredPosts.length > 0 && (
         <Posts 
