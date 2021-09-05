@@ -10,14 +10,22 @@ import { Posts } from '../../components/Posts';
 
 class Home extends Component {
   state = { 
-    posts: []
+    posts: [],
+    allPosts: [],
+    page: 0,
+    postsPerPage: 2,
   };
  
   async componentDidMount() {
+    const { posts, postsPerPage } = this.state
 
     const postsAndPhotos = await loadPosts()
 
-    this.setState({ posts: postsAndPhotos })
+    this.setState({ 
+      posts: postsAndPhotos.slice(posts, postsPerPage),
+      allPosts: postsAndPhotos
+
+    })
   }
 
 
