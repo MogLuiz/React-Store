@@ -32,7 +32,19 @@ class Home extends Component {
   }
 
   loadMorePosts = () => {
-    console.log('Load')
+    const {
+      page,
+      postsPerPage,
+      allPosts,
+      posts
+    } = this.state
+
+    const nextPage = page + postsPerPage
+    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage)
+
+    posts.push(...nextPosts)
+
+    this.setState({ posts, page: nextPage })
   }
 
   render() {
